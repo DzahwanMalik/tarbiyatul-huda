@@ -1,11 +1,12 @@
-import { Outlet } from "react-router";
+import MainLayout from "../components/layouts/MainLayout";
+import HomePage from "../pages/HomePage";
 
 const AppRoutes = [
   {
     name: "main",
     path: "/",
     key: "main",
-    Component: () => <h1>Main Layout <Outlet /></h1>,
+    Component: MainLayout,
     routes: [
       {
         name: "home",
@@ -13,7 +14,7 @@ const AppRoutes = [
         key: "home",
         index: true,
         requireAuth: false,
-        Component: () => <h1>Home</h1>,
+        Component: HomePage,
       },
       {
         name: "about",

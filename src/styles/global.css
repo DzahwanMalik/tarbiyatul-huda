@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "./font.css";
+
+@theme {
+    --color-primary: #7B4019;
+    --color-secondary: #FFBF78;
+}
+
+* {
+    font-family: "Figtree", sans-serif;
+}

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
-import AppRoutes from "./AppRoutes";
 import { Suspense } from "react";
+import AppRoutes from "./AppRoutes";
 
 const renderRoute = (route: any) => {
   const { requireAuth, isLazy, props } = route;

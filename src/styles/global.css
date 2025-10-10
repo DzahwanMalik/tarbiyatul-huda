@@ -2,10 +2,18 @@
 @import "./font.css";
 
 @theme {
-    --color-primary: #7B4019;
-    --color-secondary: #FFBF78;
+    --color-bg: #0f0f0f;          /* Background utama (dark elegan) */
+  --color-surface: #1a1a1a;     /* Warna elemen sekunder seperti card / section */
+  --color-text: #f5f5f5;        /* Warna teks utama */
+  --color-text-muted: #b5b5b5;  /* Warna teks sekunder / deskripsi */
+  --color-gold: #c6a664;        /* Warna gold utama (aksen, tombol, judul) */
+  --color-gold-light: #e1c16e;  /* Gold versi terang (hover / gradient / border) */
+  --color-border: #2a2a2a;      /* Garis pembatas halus antar elemen */
+  --color-overlay: rgba(198, 166, 100, 0.08); /* efek transparan lembut */
 }
 
-* {
-    font-family: "Figtree", sans-serif;
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
 }

@@ -2,15 +2,16 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {
-    value: string
+    value?: string
+    onClick?: () => void
 };
 
-const ButtonPrimary = (prop: Props) => {
+const ButtonSecondary = (prop: Props) => {
   return (
-    <button className="px-5 py-3 rounded-md bg-transparent text-white font-semibold w-fit border-2 border-white">
+    <button className="px-5 py-3 rounded-md font-semibold w-fit bg-transparent border-1 border-[var(--color-gold)] text-[var(--color-gold)] transition-all duration-300 ease-in-out hover:bg-[var(--color-surface)] cursor-pointer" onClick={prop.onClick}>
       {prop.value} <FontAwesomeIcon icon={faArrowRight} />
     </button>
   );
 };
 
-export default ButtonPrimary;
+export default ButtonSecondary;

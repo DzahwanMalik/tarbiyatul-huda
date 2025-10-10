@@ -1,13 +1,12 @@
 const HamburgerMenu = () => {
   return (
-    <button className="bg-[var(--color-primary)] rounded-sm p-1 text-white hover:bg-[var(--color-primary-hover)]">
+    <button className="p-1 rounded-sm cursor-pointer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="none"
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6"
+        className="size-10 text-[var(--color-gold)] transform transition-all duration-300 ease-in-out hover:text-[var(--color-gold-light)] hover:scale-110"
       >
         <path
           strokeLinecap="round"

@@ -43,8 +43,8 @@ const SocialMediaButtons = () => {
         {icons.map((icon) => {
           return (
             <li key={icon.name} className="flex">
-              <a href={icon.link} className="relative inline-block size-7 rounded-full bg-gray-300 transition-all duration-300 ease-in-out hover:bg-primary hover:text-white">
-                <FontAwesomeIcon icon={icon.icon} className="absolute top-1/2 left-1/2 -translate-1/2" />
+              <a href={icon.link} className="text-[var(--color-text)] transition-all duration-300 ease-in-out text-xl">
+                <FontAwesomeIcon icon={icon.icon} className="" />
               </a>
             </li>
           );

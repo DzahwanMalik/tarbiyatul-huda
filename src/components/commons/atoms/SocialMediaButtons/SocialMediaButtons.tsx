@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram, faLinkedin, faLinkedinIn, faTiktok, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram, faLinkedinIn, faTiktok, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 type Icon = {

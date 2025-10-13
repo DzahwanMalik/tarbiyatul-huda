@@ -1,26 +1,17 @@
+import ButtonSecondary from "../../atoms/ButtonSecondary/ButtonSecondary";
+
 const AboutSection = () => {
   return (
-    <section>
-      <div className="p-5">
-        <h3 className="flex items-center justify-center gap-5 mb-5">
-          <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
-          <span className="text-[var(--color-text-muted)] font-bold">Tentang Pesantren</span>
-          <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
-        </h3>
-        <h2 className="font-bold text-3xl mb-5 text-[var(--color-gold)]">
-          Masa Depanmu Dimulai Dari Sini!
-        </h2>
-        <p className="text-sm text-[var(--color-text-muted)] font-light">
-          Pesantren Tarbiyatul Huda Bogor hadir sebagai lembaga pendidikan Islam
-          yang berkomitmen membentuk generasi berilmu, berakhlak, dan berdaya
-          saing tinggi. Berlokasi di lingkungan yang asri dan sejuk di
-          Pancawati, Cikereteg, pesantren ini memadukan nilai-nilai keislaman
-          dengan pendidikan modern, menumbuhkan semangat belajar, kedisiplinan,
-          serta kepedulian sosial. Di sinilah tempat para santri ditempa menjadi
-          insan yang beriman, cerdas, dan siap menghadapi masa depan dengan
-          cahaya ilmu dan keikhlasan.
-        </p>
-        <div className="my-5 rounded-md overflow-hidden">
+    <section className="lg:py-10" id="about">
+      <h3 className="flex items-center justify-center gap-5 my-5">
+        <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
+        <span className="text-[var(--color-text-muted)] font-bold">
+          Tentang Pesantren
+        </span>
+        <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
+      </h3>
+      <div className="p-5 max-w-5xl m-auto flex flex-col gap-5 lg:px-0 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
+        <div className="rounded-md overflow-hidden">
           <iframe
             className="aspect-video"
             src="https://www.youtube.com/embed/pKBs8bsW1cg?si=L_Q2T4dD9UzDWwEL"
@@ -30,6 +21,22 @@ const AboutSection = () => {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
+        </div>
+        <div className="flex flex-col gap-5">
+          <h2 className="font-bold text-3xl text-[var(--color-gold)]">
+            Masa Depanmu Dimulai Dari Sini!
+          </h2>
+          <p className="text-sm text-[var(--color-text-muted)] font-light">
+            Pesantren Tarbiyatul Huda Bogor hadir sebagai lembaga pendidikan
+            Islam yang berkomitmen membentuk generasi berilmu, berakhlak, dan
+            berdaya saing tinggi. Berlokasi di lingkungan yang asri dan sejuk di
+            Pancawati, Cikereteg, pesantren ini memadukan nilai-nilai keislaman
+            dengan pendidikan modern, menumbuhkan semangat belajar,
+            kedisiplinan, serta kepedulian sosial. Di sinilah tempat para santri
+            ditempa menjadi insan yang beriman, cerdas, dan siap menghadapi masa
+            depan dengan cahaya ilmu dan keikhlasan.
+          </p>
+          <ButtonSecondary value="Pelajari Lebih Lanjut" />
         </div>
       </div>
     </section>

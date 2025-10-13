@@ -32,15 +32,16 @@ const statistics: Statistic[] = [
 
 const StatisticContainer = () => {
   return (
-    <section className="">
-      <div className="py-10 flex gap-10 justify-center bg-[var(--color-surface)]">
-        <ul className="flex flex-col gap-10">
+    <section className="lg:py-10">
+      <div className="px-10 py-14 flex gap-10 justify-center bg-[var(--color-surface)] max-w-5xl m-auto lg:rounded-2xl">
+        <ul className="flex flex-col gap-10 lg:flex-row lg:gap-20 w-full">
           {statistics.map((statistic) => {
             return (
               <StatisticDetail
                 icon={statistic.icon}
                 title={statistic.title}
                 desc={statistic.desc}
+                key={statistic.title}
               />
             );
           })}

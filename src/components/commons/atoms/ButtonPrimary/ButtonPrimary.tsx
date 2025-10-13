@@ -8,7 +8,7 @@ type Props = {
 
 const ButtonPrimary = (prop: Props) => {
   return (
-    <button className="px-5 py-3 rounded-md font-semibold w-fit bg-[var(--color-gold)] text-[var(--color-bg)] transition-all duration-300 ease-in-out hover:bg-[var(--color-gold-light)] cursor-pointer" onClick={prop.onClick}>
+    <button className="px-5 py-3 rounded-md font-semibold w-fit bg-[var(--color-gold)] text-[var(--color-bg)] transition-all duration-300 ease-in-out text-xs hover:bg-[var(--color-gold-light)] cursor-pointer" onClick={prop.onClick}>
       {prop.value} <FontAwesomeIcon icon={faArrowRight} />
     </button>
   );

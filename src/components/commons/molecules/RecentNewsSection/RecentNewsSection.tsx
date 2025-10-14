@@ -11,22 +11,23 @@ type RecentNews = {
 const recentNews1: RecentNews[] = [
   {
     title: "Peresmian Nama",
-    description:
-      "Angkatan ke-13 Pondok Pesantren Tarbiyatul Huda",
+    description: "Angkatan ke-13 Pondok Pesantren Tarbiyatul Huda",
     image:
       "https://res.cloudinary.com/dmndt2ffk/image/upload/v1760429570/SaveClip.App_562813250_18330554341232273_6813577850474305758_n_stuxis.jpg",
     link: "https://www.instagram.com/p/DPtmUKukTQe/?utm_source=ig_web_copy_link&igsh=dzdjMHp4aTVoNTQz",
   },
   {
     title: "Maulid Nabi & Haul ke-2",
-    description: "Alm. Ust. Ridwansyah Pengasuh Pondok Pesantren Tarbiyatul Huda",
+    description:
+      "Alm. Ust. Ridwansyah Pengasuh Pondok Pesantren Tarbiyatul Huda",
     image:
       "https://res.cloudinary.com/dmndt2ffk/image/upload/v1760429569/SaveClip.App_560587579_18329847301232273_3163332914783157146_n_f84g3f.jpg",
     link: "https://www.instagram.com/p/DPhsJKmgd4I/?utm_source=ig_web_copy_link&igsh=OGxtdjRyeDRyOTcz",
   },
   {
     title: "Silaturahmi & Studi Tiru PM UQI",
-    description: "Silaturahmi & Studi Tiru PM UQI Ke Pondok Pesantren Tarbiyatul Huda",
+    description:
+      "Silaturahmi & Studi Tiru PM UQI Ke Pondok Pesantren Tarbiyatul Huda",
     image:
       "https://res.cloudinary.com/dmndt2ffk/image/upload/v1760429570/SaveClip.App_545333644_18325553230232273_2559475150593674907_n_zciszc.jpg",
     link: "https://www.instagram.com/p/DOclzVrEe5w/?utm_source=ig_web_copy_link&igsh=ZXBqOXI2MGZpNG9t",
@@ -72,7 +73,7 @@ const recentNews2: RecentNews[] = [
 ];
 
 const RecentNewsSection = () => {
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState<boolean>(false);
 
   function handleClick() {
     setShowMore(!showMore);
@@ -80,7 +81,7 @@ const RecentNewsSection = () => {
 
   return (
     <section className="lg:py-10" id="news">
-      <div className="p-5 max-w-5xl m-auto lg:px-0">
+      <div className="p-5 py-10 max-w-5xl m-auto lg:px-0">
         <h3 className="flex items-center justify-center gap-5 mb-3">
           <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
           <span className="text-[var(--color-text-muted)] font-bold">
@@ -88,11 +89,9 @@ const RecentNewsSection = () => {
           </span>
           <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
         </h3>
-        <div className="grid grid-cols-2 lg:gap-10 items-center">
+        <div className="relative grid grid-cols-2 lg:gap-10 items-center overflow-hidden">
           <ul
-            className={`${
-              showMore ? "flex flex-col gap-3 col-span-2 lg:mb-0 lg:col-span-1" : "flex flex-col gap-3 mb-5 col-span-2 lg:col-span-1 lg:mb-0"
-            }`}
+            className={`flex flex-col gap-3 col-span-2 transition-all duration-300 ease-in-out lg:col-span-1 mb-5 lg:mb-0`}
           >
             {recentNews1.map((item, index) => (
               <li
@@ -104,8 +103,19 @@ const RecentNewsSection = () => {
                   target="_blank"
                   className="group flex gap-5 items-center"
                 >
-                  <div className={`${item.image ? "size-20 bg-[var(--color-surface)] rounded-md animate-none overflow-hidden" : "size-20 bg-[var(--color-surface)] rounded-md animate-pulse overflow-hidden"}`}>
-                    <img src={item.image} alt="" className="object-cover w-full h-full object-center" loading="lazy" />
+                  <div
+                    className={`${
+                      item.image
+                        ? "size-20 bg-[var(--color-surface)] rounded-md animate-none overflow-hidden"
+                        : "size-20 bg-[var(--color-surface)] rounded-md animate-pulse overflow-hidden"
+                    }`}
+                  >
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="object-cover w-full h-full object-center"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="flex flex-col gap-3 w-full">
                     <h1 className="group-hover:after:w-full font-bold text-xl text-[var(--color-gold)] relative w-fit after:absolute after:w-0 after:h-px after:bg-[var(--color-gold)] after:bottom-0 after:left-0 after:transition-all after:duration-300 after:ease-in-out">
@@ -120,10 +130,10 @@ const RecentNewsSection = () => {
             ))}
           </ul>
           <ul
-            className={`${
+            className={`col-span-2 transition-all duration-300 ease-in-out lg:col-span-1 lg:mb-0 lg:h-auto ${
               showMore
-                ? "flex flex-col gap-3 mb-5 col-span-2 lg:col-span-1 lg:mb-0"
-                : "hidden lg:flex lg:flex-col lg:gap-3"
+                ? "flex flex-col gap-3 mb-5 h-[534px]"
+                : "mb-5 h-0 lg:flex lg:flex-col lg:gap-3"
             }`}
           >
             {recentNews2.map((item, index) => (
@@ -136,8 +146,19 @@ const RecentNewsSection = () => {
                   target="_blank"
                   className="group flex gap-5 items-center"
                 >
-                  <div className={`${item.image ? "size-20 bg-[var(--color-surface)] rounded-md animate-none overflow-hidden" : "size-20 bg-[var(--color-surface)] rounded-md animate-pulse overflow-hidden"}`}>
-                    <img src={item.image} alt="" className="object-cover w-full h-full object-center" loading="lazy" />
+                  <div
+                    className={`${
+                      item.image
+                        ? "size-20 bg-[var(--color-surface)] rounded-md animate-none overflow-hidden"
+                        : "size-20 bg-[var(--color-surface)] rounded-md animate-pulse overflow-hidden"
+                    }`}
+                  >
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="object-cover w-full h-full object-center"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="flex flex-col gap-3 w-full">
                     <h1 className="group-hover:after:w-full font-bold text-xl text-[var(--color-gold)] relative w-fit after:absolute after:w-0 after:h-px after:bg-[var(--color-gold)] after:bottom-0 after:left-0 after:transition-all after:duration-300 after:ease-in-out">

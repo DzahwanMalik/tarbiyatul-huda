@@ -1,6 +1,10 @@
-const HamburgerMenu = () => {
+type Props = {
+  onClick?: () => void;
+};
+
+const HamburgerMenu = (prop: Props) => {
   return (
-    <button className="p-1 rounded-sm cursor-pointer">
+    <button className="p-1 rounded-sm cursor-pointer" onClick={prop.onClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

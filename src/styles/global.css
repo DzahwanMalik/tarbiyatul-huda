@@ -34,3 +34,14 @@ body {
   scroll-behavior: smooth;
   scroll-margin-top: 100px;
 }
+
+#heroBanner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}

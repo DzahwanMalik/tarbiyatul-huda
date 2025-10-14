@@ -9,6 +9,7 @@ type Slides = {
   description: string;
   buttonText: string;
   buttonLink: string;
+  img: string;
 };
 
 const heroData: Slides[] = [
@@ -19,6 +20,7 @@ const heroData: Slides[] = [
       "Pesantren Tarbiyatul Huda Bogor membina generasi berilmu dan berakhlak mulia dengan pendekatan modern dan nilai-nilai Islam.",
     buttonText: "Daftar Sekarang",
     buttonLink: "https://tarhud.smartsystem.co.id/#/signin/",
+    img: "https://res.cloudinary.com/dmndt2ffk/image/upload/v1760431857/WhatsApp_Image_2025-10-14_at_15.45.44_0d12ab6e_djb2wd.jpg",
   },
   {
     id: 2,
@@ -27,6 +29,7 @@ const heroData: Slides[] = [
       "Kami berkomitmen melahirkan generasi cinta Al-Qur'an yang berdaya guna di masyarakat modern.",
     buttonText: "Pelajari Lebih Lanjut",
     buttonLink: "/about",
+    img: "https://res.cloudinary.com/dmndt2ffk/image/upload/v1760431864/WhatsApp_Image_2025-10-14_at_15.49.14_b2478322_t3ojwz.jpg",
   },
   {
     id: 3,
@@ -35,6 +38,7 @@ const heroData: Slides[] = [
       "Dukungan suasana pesantren yang asri dan disiplin membentuk karakter santri yang kuat dan mandiri.",
     buttonText: "Kunjungi Kami",
     buttonLink: "/about",
+    img: "https://res.cloudinary.com/dmndt2ffk/image/upload/v1760433054/WhatsApp_Image_2025-10-14_at_16.05.16_b6fc7b37_mfnaoe.jpg",
   },
 ];
 
@@ -56,11 +60,11 @@ const HeroBanner = () => {
   const hero = heroData[currentSlide];
 
   return (
-    <div className="relative h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[url('https://images.unsplash.com/photo-1710953055333-ae4aaa4cdc6d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870')] before:bg-cover before:bg-center before:bg-fixed before:animate-heroBanner flex gap-5 flex-col justify-center px-5 min-sm:after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/60 lg:h-[60vh] overflow-hidden">
+    <div className="relative h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-cover before:bg-center before:bg-fixed before:animate-heroBanner flex gap-5 flex-col justify-center px-5 min-sm:after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/60 lg:h-[60vh] overflow-hidden" style={{"--hero-bg": `url(${hero.img})`} as React.CSSProperties} id="heroBanner">
       <div className="max-w-5xl m-auto w-full">
         <div
           key={hero.id}
-          className="relative z-10 flex flex-col gap-5"
+          className="relative z-10 flex flex-col gap-5 lg:max-w-[70%]"
           data-aos="fade-up"
         >
           <h1 className="font-bold text-4xl text-[var(--color-text)]">

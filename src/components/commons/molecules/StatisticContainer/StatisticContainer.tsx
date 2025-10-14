@@ -6,7 +6,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Statistic = {
   icon: IconProp;
@@ -38,10 +38,22 @@ const statistics: Statistic[] = [
 
 const StatisticContainer = () => {
   const refs = useRef<HTMLHeadingElement[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [count, setCount] = useState<boolean>(false);
+
+  window.addEventListener("scroll", () => {
+    const refPosition = sectionRef.current?.getBoundingClientRect().top;
+
+    if (refPosition && refPosition < (window.innerHeight * 50) / 100) {
+      setCount(true);
+    }
+  });
 
   useEffect(() => {
-    initCountUp();
-  }, []);
+    if (count) {
+      initCountUp();
+    }
+  });
 
   async function initCountUp() {
     const { CountUp } = await import("countup.js");
@@ -56,7 +68,10 @@ const StatisticContainer = () => {
 
   return (
     <section className="lg:py-10">
-      <div className="px-10 py-14 flex gap-10 justify-center bg-[var(--color-surface)] max-w-5xl m-auto lg:rounded-2xl">
+      <div
+        className="px-10 py-14 flex gap-10 justify-center bg-[var(--color-surface)] max-w-5xl m-auto lg:rounded-2xl"
+        ref={sectionRef}
+      >
         <ul className="flex flex-col gap-10 lg:flex-row lg:gap-20 w-full">
           {statistics.map((statistic, index) => {
             return (

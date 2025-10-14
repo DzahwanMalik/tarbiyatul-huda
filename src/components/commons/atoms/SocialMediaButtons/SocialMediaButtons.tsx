@@ -10,28 +10,23 @@ type Icon = {
 
 const icons: Icon[] = [
     {
-        name: "Linkedin",
-        link: "",
-        icon: faLinkedinIn
-    },
-    {
         name: "YouTube",
-        link: "",
+        link: "https://www.youtube.com/@tarhudchannel",
         icon: faYoutube
     },
     {
         name: "Instagram",
-        link: "",
+        link: "https://www.instagram.com/tarhud_official/",
         icon: faInstagram
     },
     {
         name: "Tiktok",
-        link: "",
+        link: "https://www.tiktok.com/@tarhud.story?lang=id-ID",
         icon: faTiktok
     },
     {
         name: "Facebook",
-        link: "",
+        link: "https://www.facebook.com/tarhud?locale=id_ID",
         icon: faFacebook
     },
 ]
@@ -43,8 +38,8 @@ const SocialMediaButtons = () => {
         {icons.map((icon) => {
           return (
             <li key={icon.name} className="flex">
-              <a href={icon.link} className="text-[var(--color-text)] transition-all duration-300 ease-in-out text-xl">
-                <FontAwesomeIcon icon={icon.icon} className="" />
+              <a href={icon.link} target="_blank" className="text-[var(--color-text)] transition-all duration-300 ease-in-out text-xl">
+                <FontAwesomeIcon icon={icon.icon} />
               </a>
             </li>
           );

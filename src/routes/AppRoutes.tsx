@@ -1,4 +1,5 @@
 import MainLayout from "../components/layouts/MainLayout";
+import PageNotFound from "../pages/404PageNotFound";
 import HomePage from "../pages/HomePage";
 
 const AppRoutes = [
@@ -16,19 +17,13 @@ const AppRoutes = [
         requireAuth: false,
         Component: HomePage,
       },
-      {
-        name: "about",
-        path: "/about",
-        key: "about",
-        Component: () => <h1>About</h1>,
-      },
     ],
   },
   {
     name: "404",
     path: "*",
     key: "404",
-    Component: () => <h1>404 Page Not Found</h1>,
+    Component: PageNotFound,
   },
 ];
 

@@ -18,7 +18,7 @@ const heroData: Slides[] = [
     description:
       "Pesantren Tarbiyatul Huda Bogor membina generasi berilmu dan berakhlak mulia dengan pendekatan modern dan nilai-nilai Islam.",
     buttonText: "Daftar Sekarang",
-    buttonLink: "/psb",
+    buttonLink: "https://tarhud.smartsystem.co.id/#/signin/",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const heroData: Slides[] = [
     description:
       "Kami berkomitmen melahirkan generasi cinta Al-Qur'an yang berdaya guna di masyarakat modern.",
     buttonText: "Pelajari Lebih Lanjut",
-    buttonLink: "/tentang",
+    buttonLink: "/about",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const heroData: Slides[] = [
     description:
       "Dukungan suasana pesantren yang asri dan disiplin membentuk karakter santri yang kuat dan mandiri.",
     buttonText: "Kunjungi Kami",
-    buttonLink: "/kontak",
+    buttonLink: "/about",
   },
 ];
 
@@ -44,7 +44,7 @@ const HeroBanner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % heroData.length);
-    }, 8000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -56,7 +56,7 @@ const HeroBanner = () => {
   const hero = heroData[currentSlide];
 
   return (
-    <div className="relative h-screen bg-[url('https://images.unsplash.com/photo-1710953055333-ae4aaa4cdc6d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870')] bg-cover bg-center bg-fixed flex gap-5 flex-col justify-center px-5 min-sm:after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/60 lg:h-[60vh]">
+    <div className="relative h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[url('https://images.unsplash.com/photo-1710953055333-ae4aaa4cdc6d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870')] before:bg-cover before:bg-center before:bg-fixed before:animate-heroBanner flex gap-5 flex-col justify-center px-5 min-sm:after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/60 lg:h-[60vh] overflow-hidden">
       <div className="max-w-5xl m-auto w-full">
         <div
           key={hero.id}
@@ -67,7 +67,7 @@ const HeroBanner = () => {
             {hero.title}
           </h1>
           <p>{hero.description}</p>
-          <ButtonPrimary value="Pelajari Lebih Lanjut" />
+          <ButtonPrimary value={hero.buttonText} link={hero.buttonLink} />
         </div>
       </div>
     </div>

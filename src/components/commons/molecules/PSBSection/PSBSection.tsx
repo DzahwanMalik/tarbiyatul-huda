@@ -12,7 +12,7 @@ const PSBSection = () => {
           bersama Pesantren Tarbiyatul Huda Bogor untuk menapaki jalan ilmu,
           iman, dan akhlak mulia menuju masa depan yang gemilang.
         </p>
-        <ButtonPrimary value="WhatsApp" />
+        <ButtonPrimary value="WhatsApp" link="https://wa.me/6285693415051" target="_blank" />
       </div>
     </section>
   );

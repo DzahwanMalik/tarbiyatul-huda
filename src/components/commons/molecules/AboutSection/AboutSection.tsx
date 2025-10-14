@@ -1,6 +1,9 @@
 import ButtonSecondary from "../../atoms/ButtonSecondary/ButtonSecondary";
 
 const AboutSection = () => {
+  const profil =
+    "https://www.youtube.com/embed/pKBs8bsW1cg?si=L_Q2T4dD9UzDWwEL";
+
   return (
     <section className="lg:py-10" id="about">
       <h3 className="flex items-center justify-center gap-5 my-5">
@@ -11,15 +14,16 @@ const AboutSection = () => {
         <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
       </h3>
       <div className="p-5 max-w-5xl m-auto flex flex-col gap-5 lg:px-0 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
-        <div className="rounded-md overflow-hidden">
+        <div className={`${profil ? "rounded-md overflow-hidden bg-surface animate-none" : "rounded-md overflow-hidden bg-surface animate-pulse"}`}>
           <iframe
             className="aspect-video"
-            src="https://www.youtube.com/embed/pKBs8bsW1cg?si=L_Q2T4dD9UzDWwEL"
+            src={profil}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
+            loading="lazy"
           ></iframe>
         </div>
         <div className="flex flex-col gap-5">
@@ -36,7 +40,7 @@ const AboutSection = () => {
             ditempa menjadi insan yang beriman, cerdas, dan siap menghadapi masa
             depan dengan cahaya ilmu dan keikhlasan.
           </p>
-          <ButtonSecondary value="Pelajari Lebih Lanjut" />
+          <ButtonSecondary value="Pelajari Lebih Lanjut" link="/about" />
         </div>
       </div>
     </section>

@@ -15,8 +15,8 @@ const CTASection = () => {
           </p>
         </div>
         <div className="flex flex-col gap-2 lg:flex-row">
-          <ButtonPrimary value="Langsung Akses PSB" />
-          <ButtonSecondary value="Mau Konsultasi Dulu" />
+          <ButtonPrimary value="Langsung Akses PSB" link="https://tarhud.smartsystem.co.id/#/signin/" target="_blank" />
+          <ButtonSecondary value="Mau Konsultasi Dulu" link="https://wa.me/6285693415051" target="_blank" />
         </div>
       </div>
     </section>

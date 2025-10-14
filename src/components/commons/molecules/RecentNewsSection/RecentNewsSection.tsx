@@ -132,7 +132,7 @@ const RecentNewsSection = () => {
           <ul
             className={`col-span-2 transition-all duration-300 ease-in-out lg:col-span-1 lg:mb-0 lg:h-auto ${
               showMore
-                ? "flex flex-col gap-3 mb-5 h-[574px]"
+                ? "flex flex-col gap-3 mb-5 h-[624px]"
                 : "mb-5 h-0 lg:flex lg:flex-col lg:gap-3"
             }`}
           >

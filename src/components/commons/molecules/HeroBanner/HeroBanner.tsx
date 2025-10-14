@@ -59,8 +59,19 @@ const HeroBanner = () => {
 
   const hero = heroData[currentSlide];
 
+  function handleHref() {
+    const link = document.createElement("a");
+    link.href = hero.buttonLink;
+    link.target = "_blank";
+    link.click();
+  }
+
   return (
-    <div className="relative h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-cover before:bg-center before:bg-fixed before:animate-heroBanner flex gap-5 flex-col justify-center px-5 min-sm:after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/60 lg:h-[60vh] overflow-hidden" style={{"--hero-bg": `url(${hero.img})`} as React.CSSProperties} id="heroBanner">
+    <div
+      className="relative h-screen before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-cover before:bg-center before:bg-fixed before:animate-heroBanner flex gap-5 flex-col justify-center px-5 min-sm:after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black/60 lg:h-[60vh] overflow-hidden"
+      style={{ "--hero-bg": `url(${hero.img})` } as React.CSSProperties}
+      id="heroBanner"
+    >
       <div className="max-w-5xl m-auto w-full">
         <div
           key={hero.id}
@@ -71,7 +82,7 @@ const HeroBanner = () => {
             {hero.title}
           </h1>
           <p>{hero.description}</p>
-          <ButtonPrimary value={hero.buttonText} link={hero.buttonLink} />
+          <ButtonPrimary value={hero.buttonText} onClick={handleHref} />
         </div>
       </div>
     </div>

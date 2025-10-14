@@ -4,6 +4,13 @@ const AboutSection = () => {
   const profil =
     "https://www.youtube.com/embed/pKBs8bsW1cg?si=L_Q2T4dD9UzDWwEL";
 
+    function handleHref() {
+      const link = document.createElement("a");
+      link.href = "/about";
+      link.target = "_blank";
+      link.click();
+    }
+
   return (
     <section className="lg:py-10" id="about">
       <h3 className="flex items-center justify-center gap-5 my-5">
@@ -40,7 +47,7 @@ const AboutSection = () => {
             ditempa menjadi insan yang beriman, cerdas, dan siap menghadapi masa
             depan dengan cahaya ilmu dan keikhlasan.
           </p>
-          <ButtonSecondary value="Pelajari Lebih Lanjut" link="/about" />
+          <ButtonSecondary value="Pelajari Lebih Lanjut" onClick={handleHref} />
         </div>
       </div>
     </section>

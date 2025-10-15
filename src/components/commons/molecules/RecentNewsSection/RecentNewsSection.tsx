@@ -97,6 +97,7 @@ const RecentNewsSection = () => {
               <li
                 key={index}
                 className="p-5 border-b-1 border-[var(--color-border)]"
+                data-aos="fade-right"
               >
                 <a
                   href={item.link}
@@ -140,6 +141,7 @@ const RecentNewsSection = () => {
               <li
                 key={index}
                 className="p-5 border-b-1 border-[var(--color-border)]"
+                data-aos="fade-right"
               >
                 <a
                   href={item.link}

@@ -77,6 +77,7 @@ const HeroBanner = () => {
           key={hero.id}
           className="relative z-10 flex flex-col gap-5 lg:max-w-[70%]"
           data-aos="fade-up"
+          data-aos-duration="2000"
         >
           <h1 className="font-bold text-4xl text-[var(--color-text)]">
             {hero.title}

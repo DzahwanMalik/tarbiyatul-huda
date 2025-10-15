@@ -22,7 +22,7 @@ const MainLayout = () => {
       throttleDelay: 99,
       offset: 120,
       delay: 0,
-      duration: 2000,
+      duration: 1000,
       easing: "ease-in-sine",
       once: false,
       mirror: false,

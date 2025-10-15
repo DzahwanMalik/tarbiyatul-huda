@@ -69,10 +69,10 @@ const StatisticContainer = () => {
   return (
     <section className="lg:py-10">
       <div
-        className="px-10 py-14 flex gap-10 justify-center bg-[var(--color-surface)] max-w-5xl m-auto lg:rounded-2xl"
+        className="px-10 py-14 flex gap-10 justify-center bg-[var(--color-surface)] max-w-5xl m-auto lg:rounded-2xl overflow-hidden"
         ref={sectionRef}
       >
-        <ul className="flex flex-col gap-10 lg:flex-row lg:gap-20 w-full">
+        <ul className="flex flex-col gap-10 lg:flex-row lg:gap-20 w-full" data-aos="fade-up">
           {statistics.map((statistic, index) => {
             return (
               <StatisticDetail

@@ -10,19 +10,19 @@ type Link = {
 const links: Link[] = [
   {
     name: "Beranda",
-    link: "#",
+    link: "/",
   },
   {
     name: "Tentang Kami",
-    link: "#about",
+    link: "/about",
   },
   {
     name: "PSB",
-    link: "#psb",
+    link: "https://tarhud.smartsystem.co.id/#/signin/",
   },
   {
     name: "Berita",
-    link: "#news",
+    link: "/news",
   },
   {
     name: "Gallery",

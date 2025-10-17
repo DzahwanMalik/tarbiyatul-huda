@@ -7,7 +7,6 @@ const AboutSection = () => {
     function handleHref() {
       const link = document.createElement("a");
       link.href = "/about";
-      link.target = "_blank";
       link.click();
     }
 

@@ -25,7 +25,7 @@ const CTASection = () => {
           <ButtonPrimary
             value="Langsung Akses PSB"
             onClick={() => {
-              handleHref("https://tarhud.smartsystem.co.id/#/signin/");
+              handleHref("https://tarhud.smartsystem.co.id/");
             }}
           />
           <ButtonSecondary

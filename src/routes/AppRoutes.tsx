@@ -1,6 +1,8 @@
 import MainLayout from "../components/layouts/MainLayout";
 import PageNotFound from "../pages/404PageNotFound";
 import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
+import GalleryPage from "../pages/GalleryPage";
 
 const AppRoutes = [
   {
@@ -16,6 +18,24 @@ const AppRoutes = [
         index: true,
         requireAuth: false,
         Component: HomePage,
+      },
+      {
+        name: "about",
+        path: "/about",
+        key: "about",
+        Component: AboutPage,
+      },
+      {
+        name: "news",
+        path: "/news",
+        key: "news",
+        Component: AboutPage,
+      },
+      {
+        name: "gallery",
+        path: "/gallery",
+        key: "gallery",
+        Component: GalleryPage,
       },
     ],
   },

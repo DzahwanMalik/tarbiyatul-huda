@@ -18,7 +18,7 @@ const PSBSection = () => {
 
   return (
     <section className="lg:py-10" id="psb">
-      <div className="p-5 bg-[var(--color-surface)] max-w-5xl m-auto lg:rounded-2xl lg:p-10 overflow-hidden">
+      <div className="p-5 bg-[var(--color-surface)] max-w-[var(--my-max-width)] m-auto lg:rounded-2xl lg:p-10 overflow-hidden">
         <div data-aos="fade-up">
           <h2 className="font-bold text-3xl mb-5 text-[var(--color-gold)]">
             Informasi PSB Tahun Ajaran 2025-2026

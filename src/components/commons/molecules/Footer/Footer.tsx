@@ -74,7 +74,7 @@ const linkTerkait2: Link[] = [
 const Footer = () => {
   return (
     <div className="border-t-1 border-[var(--color-border)]">
-      <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-14 py-10 max-w-5xl m-auto px-5 lg:px-0">
+      <div className="grid grid-cols-[2fr_.5fr_1fr_1.5fr] gap-14 py-10 max-w-[var(--my-max-width)] m-auto px-5">
         <div className="col-span-4 lg:col-span-1">
           <a href="#">
             <img
@@ -160,7 +160,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-surface border-t-1 border-[var(--color-border)]">
-        <div className="flex flex-col gap-3 lg:flex-row text-[var(--color-text-muted)] pt-6 pb-4 px-5 text-center text-xs max-w-5xl m-auto lg:justify-between lg:text-sm lg:px-0">
+        <div className="flex flex-col gap-3 lg:flex-row text-[var(--color-text-muted)] pt-6 pb-4 px-5 text-center text-xs max-w-[var(--my-max-width)] m-auto lg:justify-between lg:text-sm">
           <small className="">
             Copyright &copy; 2025 Website Resmi Pondok Pesantren Tarbiyatul Huda
           </small>

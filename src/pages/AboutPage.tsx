@@ -2,7 +2,7 @@ const AboutPage = () => {
   return (
     <>
       <section className="lg:py-10">
-        <div className="p-5 max-w-5xl m-auto">
+        <div className="p-5 max-w-[var(--my-max-width)] m-auto">
           <h3 className="flex items-center justify-center gap-5 my-5">
             <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
             <span className="text-[var(--color-text-muted)] font-bold">

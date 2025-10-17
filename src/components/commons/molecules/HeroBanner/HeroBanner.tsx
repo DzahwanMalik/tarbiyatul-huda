@@ -72,7 +72,7 @@ const HeroBanner = () => {
       style={{ "--hero-bg": `url(${hero.img})` } as React.CSSProperties}
       id="heroBanner"
     >
-      <div className="max-w-5xl m-auto w-full">
+      <div className="max-w-[var(--my-max-width)] m-auto w-full">
         <div
           key={hero.id}
           className="relative z-10 flex flex-col gap-5 lg:max-w-[70%]"

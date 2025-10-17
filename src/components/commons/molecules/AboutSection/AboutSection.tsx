@@ -19,7 +19,7 @@ const AboutSection = () => {
         </span>
         <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
       </h3>
-      <div className="p-5 max-w-5xl m-auto flex flex-col gap-5 lg:px-0 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
+      <div className="p-5 max-w-[var(--my-max-width)] m-auto flex flex-col gap-5 lg:px-0 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
         <div className={`${profil ? "rounded-md overflow-hidden bg-surface animate-none" : "rounded-md overflow-hidden bg-surface animate-pulse"}`} data-aos="fade-up">
           <iframe
             className="aspect-video"

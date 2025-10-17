@@ -41,7 +41,7 @@ const NavigationBar = () => {
   return (
     <nav className="fixed z-20 top-0 w-full lg:sticky" data-aos="fade-down">
       <div className="shadow-xl relative z-20 bg-[var(--color-bg)]">
-        <div className="relative z-10 max-w-5xl m-auto flex justify-between items-center p-5">
+        <div className="relative z-10 max-w-[var(--my-max-width)] m-auto flex justify-between items-center p-5">
           <a href={links[0].link}>
             <img src="logo/tarhud-logo.png" alt="" width="150px" />
           </a>

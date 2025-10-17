@@ -11,7 +11,7 @@ const CTASection = () => {
 
   return (
     <section className="bg-surface overflow-hidden">
-      <div className="px-5 py-20 flex flex-col gap-5 max-w-5xl m-auto lg:px-0 lg:flex-row lg:items-center" data-aos="fade-up">
+      <div className="px-5 py-20 flex flex-col gap-5 max-w-[var(--my-max-width)] m-auto lg:flex-row lg:items-center" data-aos="fade-up">
         <div className="flex flex-col gap-5">
           <h1 className="text-3xl font-semibold text-[var(--color-gold)]">
             Siap Bergabung Dengan Tarbiyatul Huda?

@@ -81,7 +81,7 @@ const RecentNewsSection = () => {
 
   return (
     <section className="lg:py-10" id="news">
-      <div className="p-5 py-10 max-w-5xl m-auto lg:px-0">
+      <div className="p-5 py-10 max-w-[var(--my-max-width)] m-auto lg:px-0">
         <h3 className="flex items-center justify-center gap-5 mb-3">
           <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
           <span className="text-[var(--color-text-muted)] font-bold">

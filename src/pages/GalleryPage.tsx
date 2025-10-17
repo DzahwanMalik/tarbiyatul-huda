@@ -89,7 +89,7 @@ const GalleryPage = () => {
         <div className="pb-10 flex gap-3 flex-wrap w-full justify-center items-center">
           {contents.map((item, index) => (
             <div
-              className="size-30 rounded-md overflow-hidden lg:size-40"
+              className="size-26 rounded-md overflow-hidden lg:size-40"
               key={index}
               data-aos="fade-up"
             >

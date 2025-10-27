@@ -4,11 +4,11 @@ const AboutSection = () => {
   const profil =
     "https://www.youtube.com/embed/pKBs8bsW1cg?si=L_Q2T4dD9UzDWwEL";
 
-    function handleHref() {
-      const link = document.createElement("a");
-      link.href = "/about";
-      link.click();
-    }
+  function handleHref() {
+    const link = document.createElement("a");
+    link.href = "/about";
+    link.click();
+  }
 
   return (
     <section className="lg:py-10" id="about">
@@ -20,16 +20,22 @@ const AboutSection = () => {
         <div className="h-px bg-[var(--color-text-muted)] w-10"></div>
       </h3>
       <div className="p-5 max-w-[var(--my-max-width)] m-auto flex flex-col gap-5 lg:px-0 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center">
-        <div className={`${profil ? "rounded-md overflow-hidden bg-surface animate-none" : "rounded-md overflow-hidden bg-surface animate-pulse"}`} data-aos="fade-up">
+        <div
+          className={`${
+            profil
+              ? "rounded-md overflow-hidden bg-surface animate-none"
+              : "rounded-md overflow-hidden bg-surface animate-pulse"
+          }`}
+          data-aos="fade-up"
+        >
           <iframe
             className="aspect-video"
-            src={profil}
+            src="https://www.youtube.com/embed/Kp_y49A5sTU?si=S85rEdLmDO0Djook"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            loading="lazy"
           ></iframe>
         </div>
         <div className="flex flex-col gap-5" data-aos="fade-up">

@@ -28,6 +28,17 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 import useAuthStore from "@/store/useAuthStore";
 import { toast } from "@/components/ui/toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const formSchema = z.object({
   email: z.email("Format email tidak valid"),
@@ -61,7 +72,7 @@ const LoginPage = () => {
         throw new Error(
           error.message === "Invalid login credentials"
             ? "Email atau password salah."
-            : error.message,
+            : "Periksa koneksi internet kamu.",
         );
       }
 
@@ -155,9 +166,36 @@ const LoginPage = () => {
             <Button type="submit" form="login-form" disabled={isSubmitting}>
               {isSubmitting ? "Loading..." : "Login"}
             </Button>
-            <Button variant="link" type="button">
-              Forgot Password?
-            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger
+                render={
+                  <Button variant="link" type="button">
+                    Forgot Password?
+                  </Button>
+                }
+              />
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    Hubungi Super Admin / Developer
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Aksi ini akan langsung mengarahkan anda untuk menghubungi
+                    Super Admin / Developer 😉
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction
+                    onClick={() =>
+                      window.open("https://wa.me/6285693415051", "_blank")
+                    }
+                  >
+                    Continue
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </Field>
         </CardFooter>
       </Card>

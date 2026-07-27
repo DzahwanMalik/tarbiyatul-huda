@@ -1,0 +1,138 @@
+import {
+  ChartBarStacked,
+  LayoutDashboard,
+  Newspaper,
+  Settings,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
+import { useState } from "react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+} from "../ui/sidebar";
+import { NavLink } from "react-router";
+import { Button } from "../ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../ui/alert-dialog";
+import { toast } from "../ui/toast";
+import useAuthStore from "../../store/useAuthStore";
+
+interface Menu {
+  to: string;
+  label: string;
+  icon: LucideIcon;
+}
+
+const MENUS: Menu[] = [
+  {
+    to: "/",
+    label: "Dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    to: "/articles",
+    label: "Articles",
+    icon: Newspaper,
+  },
+  {
+    to: "/categories",
+    label: "Categories",
+    icon: ChartBarStacked,
+  },
+  {
+    to: "/admins",
+    label: "Admins",
+    icon: ShieldCheck,
+  },
+  {
+    to: "/settings",
+    label: "Settings",
+    icon: Settings,
+  },
+];
+
+const AppSidebar = () => {
+  const signOut = useAuthStore((state) => state.signOut);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleLogout = async () => {
+    try {
+      setLoading(true);
+      await toast.promise(signOut(), {
+        loading: { title: "Sedang keluar...", type: "loading" },
+        success: { title: "Logout Berhasil!", type: "success" },
+        error: (err: Error) => ({
+          title: "Logout Gagal!",
+          description: err.message,
+          type: "error",
+        }),
+      });
+    } catch {
+      // Error is already handled by toast
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Sidebar>
+      <SidebarHeader />
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Menu</SidebarGroupLabel>
+          <SidebarMenu>
+            {MENUS.map((menu) => (
+              <NavLink to={menu.to} key={menu.to} tabIndex={-1}>
+                {({ isActive }) => (
+                  <SidebarMenuButton isActive={isActive}>
+                    <menu.icon />
+                    {menu.label}
+                  </SidebarMenuButton>
+                )}
+              </NavLink>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
+      </SidebarContent>
+      <SidebarFooter>
+        <AlertDialog>
+          <AlertDialogTrigger
+            render={<Button variant="destructive">Logout</Button>}
+          />
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Konfirmasi Logout</AlertDialogTitle>
+              <AlertDialogDescription>
+                Apakah anda yakin ingin keluar dari aplikasi?
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel disabled={loading}>Batal</AlertDialogCancel>
+              <AlertDialogAction onClick={handleLogout} disabled={loading}>
+                {loading ? "Loading..." : "Logout"}
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </SidebarFooter>
+    </Sidebar>
+  );
+};
+
+export default AppSidebar;

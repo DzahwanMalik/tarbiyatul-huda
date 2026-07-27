@@ -22,8 +22,9 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 import useAuthStore from "@/store/useAuthStore";
@@ -39,6 +40,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Spinner } from "@/components/ui/spinner";
 
 const formSchema = z.object({
   email: z.email("Format email tidak valid"),
@@ -50,6 +52,22 @@ const LoginPage = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const fetchSession = useAuthStore((state) => state.fetchSession);
+  const loading = useAuthStore((state) => state.loading);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session) {
+        navigate("/");
+      } else {
+        fetchSession();
+      }
+    };
+    checkSession();
+  }, [navigate, fetchSession]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -90,11 +108,21 @@ const LoginPage = () => {
           type: "error",
         }),
       });
+
+      navigate("/");
     } catch {
       // Error is already handled by toast
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-accent">
+        <Spinner className="size-10" />
+      </div>
+    );
   }
 
   return (

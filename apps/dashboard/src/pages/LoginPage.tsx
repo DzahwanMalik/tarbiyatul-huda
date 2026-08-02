@@ -191,13 +191,13 @@ const LoginPage = () => {
         </CardContent>
         <CardFooter>
           <Field orientation="responsive">
-            <Button type="submit" form="login-form" disabled={isSubmitting}>
+            <Button size="lg" type="submit" form="login-form" disabled={isSubmitting}>
               {isSubmitting ? "Loading..." : "Login"}
             </Button>
             <AlertDialog>
               <AlertDialogTrigger
                 render={
-                  <Button variant="link" type="button">
+                  <Button size="lg" variant="link" type="button">
                     Forgot Password?
                   </Button>
                 }

@@ -6,7 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/molecules/AppSidebar";
 import { Spinner } from "@/components/ui/spinner";
 
-export default function DashboardLayout() {
+const DashboardLayout = () => {
   const navigate = useNavigate();
   const { fetchSession, loading, user } = useAuthStore();
 
@@ -36,7 +36,7 @@ export default function DashboardLayout() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="flex-1 bg-accent">
+      <main className="flex-1 bg-accent p-2">
         {loading ? (
           <div className="flex min-h-screen items-center justify-center">
             <Spinner className="size-10" />
@@ -47,4 +47,6 @@ export default function DashboardLayout() {
       </main>
     </SidebarProvider>
   );
-}
+};
+
+export default DashboardLayout;

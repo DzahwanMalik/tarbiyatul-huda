@@ -1,6 +1,8 @@
 import {
   ChartBarStacked,
+  HelpCircle,
   LayoutDashboard,
+  LogOut,
   Newspaper,
   Settings,
   ShieldCheck,
@@ -32,6 +34,8 @@ import {
 } from "../ui/alert-dialog";
 import { toast } from "../ui/toast";
 import useAuthStore from "../../store/useAuthStore";
+import { Card, CardContent, CardHeader } from "../ui/card";
+import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface Menu {
   to: string;
@@ -69,6 +73,7 @@ const MENUS: Menu[] = [
 
 const AppSidebar = () => {
   const signOut = useAuthStore((state) => state.signOut);
+  const profile = useAuthStore((state) => state.profile);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLogout = async () => {
@@ -92,7 +97,21 @@ const AppSidebar = () => {
 
   return (
     <Sidebar>
-      <SidebarHeader />
+      <SidebarHeader>
+        <Card className="flex flex-row items-center gap-3 p-4">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" alt="avatar" />
+            <AvatarFallback>CN</AvatarFallback>
+            <AvatarBadge className="bg-green-600 dark:bg-green-800" />
+          </Avatar>
+          <div className="w-full">
+            <CardHeader className="font-semibold p-0">Welcome,</CardHeader>
+            <CardContent className="p-0 text-xs">
+              {profile?.full_name}
+            </CardContent>
+          </div>
+        </Card>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Menu</SidebarGroupLabel>
@@ -111,9 +130,18 @@ const AppSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
+        <Button variant="outline">
+          <HelpCircle />
+          Help Center
+        </Button>
         <AlertDialog>
           <AlertDialogTrigger
-            render={<Button variant="destructive">Logout</Button>}
+            render={
+              <Button variant="destructive">
+                <LogOut />
+                Logout
+              </Button>
+            }
           />
           <AlertDialogContent>
             <AlertDialogHeader>
@@ -124,7 +152,7 @@ const AppSidebar = () => {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel disabled={loading}>Batal</AlertDialogCancel>
-              <AlertDialogAction onClick={handleLogout} disabled={loading}>
+              <AlertDialogAction variant="destructive" onClick={handleLogout} disabled={loading}>
                 {loading ? "Loading..." : "Logout"}
               </AlertDialogAction>
             </AlertDialogFooter>

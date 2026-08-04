@@ -3,24 +3,14 @@ import {
   HelpCircle,
   LayoutDashboard,
   LogOut,
+  type LucideIcon,
   Newspaper,
   Settings,
   ShieldCheck,
-  type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-} from "../ui/sidebar";
 import { NavLink } from "react-router";
-import { Button } from "../ui/button";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -31,11 +21,22 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "../ui/alert-dialog";
-import { toast } from "../ui/toast";
-import useAuthStore from "../../store/useAuthStore";
-import { Card, CardContent, CardHeader } from "../ui/card";
-import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "../ui/avatar";
+} from "@/components/ui/alert-dialog";
+import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+} from "@/components/ui/sidebar";
+import { toast } from "@/components/ui/toast";
+import useAuthStore from "@/store/useAuthStore";
 
 interface Menu {
   to: string;

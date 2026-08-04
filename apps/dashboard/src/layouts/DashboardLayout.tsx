@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router";
-import { supabase } from "../lib/supabase";
-import useAuthStore from "../store/useAuthStore";
-import { SidebarProvider } from "@/components/ui/sidebar";
+
 import AppSidebar from "@/components/molecules/AppSidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { Spinner } from "@/components/ui/spinner";
+import { supabase } from "@/lib/supabase";
+import useAuthStore from "@/store/useAuthStore";
 
 const DashboardLayout = () => {
   const navigate = useNavigate();

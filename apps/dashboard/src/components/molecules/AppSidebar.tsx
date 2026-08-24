@@ -5,9 +5,9 @@ import {
   LogOut,
   type LucideIcon,
   Newspaper,
-  Settings,
   ShieldCheck,
 } from "lucide-react";
+import type React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router";
 
@@ -65,19 +65,14 @@ const MENUS: Menu[] = [
     label: "Admins",
     icon: ShieldCheck,
   },
-  {
-    to: "/settings",
-    label: "Settings",
-    icon: Settings,
-  },
 ];
 
-const AppSidebar = () => {
+const AppSidebar = (): React.JSX.Element => {
   const signOut = useAuthStore((state) => state.signOut);
   const profile = useAuthStore((state) => state.profile);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleLogout = async () => {
+  const handleLogout = async (): Promise<void> => {
     try {
       setLoading(true);
       await toast.promise(signOut(), {

@@ -7,7 +7,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { supabase } from "@/lib/supabase";
 import useAuthStore from "@/store/useAuthStore";
 
-const DashboardLayout = () => {
+const DashboardLayout = (): React.JSX.Element => {
   const navigate = useNavigate();
   const { fetchSession, loading, user } = useAuthStore();
 
@@ -25,19 +25,19 @@ const DashboardLayout = () => {
       }
     });
 
-    return () => {
+    return (): void => {
       subscription.unsubscribe();
     };
   }, [fetchSession, navigate]);
 
   if (!user) {
-    return null;
+    return <></>;
   }
 
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="flex-1 bg-accent p-2">
+      <main className="flex-1 bg-muted p-2">
         {loading ? (
           <div className="flex min-h-screen items-center justify-center">
             <Spinner className="size-10" />

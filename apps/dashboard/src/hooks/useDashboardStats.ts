@@ -21,7 +21,8 @@ export const useDashboardStats = (): UseDashboardStatsReturn => {
 
         const [
           { count: totalArticles, error: articlesError },
-          { count: activeAdmins, error: adminsError },
+          { count: activeAdmins, error: activeAdminsError },
+          { count: totalAdmins, error: totalAdminsError },
           { count: totalCategories, error: categoriesError },
           { count: pendingReview, error: pendingError },
         ] = await Promise.all([
@@ -32,6 +33,10 @@ export const useDashboardStats = (): UseDashboardStatsReturn => {
             .in("role", ["ADMIN", "SUPER_ADMIN"])
             .eq("is_active", true),
           supabase
+            .from("profiles")
+            .select("*", { count: "exact", head: true })
+            .in("role", ["ADMIN", "SUPER_ADMIN"]),
+          supabase
             .from("categories")
             .select("*", { count: "exact", head: true }),
           supabase
@@ -40,13 +45,20 @@ export const useDashboardStats = (): UseDashboardStatsReturn => {
             .eq("is_published", false),
         ]);
 
-        if (articlesError || adminsError || categoriesError || pendingError) {
+        if (
+          articlesError ||
+          activeAdminsError ||
+          totalAdminsError ||
+          categoriesError ||
+          pendingError
+        ) {
           throw new Error("Gagal mengambil data statistik");
         }
 
         setStats({
           totalArticles: totalArticles ?? 0,
           activeAdmins: activeAdmins ?? 0,
+          totalAdmins: totalAdmins ?? 0,
           totalCategories: totalCategories ?? 0,
           pendingReview: pendingReview ?? 0,
         });

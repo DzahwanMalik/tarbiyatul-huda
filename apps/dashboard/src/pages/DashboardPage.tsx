@@ -1,14 +1,12 @@
-import type { LucideIcon } from "lucide-react";
 import {
   FileText,
   FolderTree,
-  PlusCircle,
   TrendingUp,
   Users,
 } from "lucide-react";
 import type React from "react";
 
-import { Button } from "@/components/ui/button";
+import RecentArticlesTable from "@/components/molecules/RecentArticlesTable";
 import {
   Card,
   CardAction,
@@ -18,17 +16,7 @@ import {
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useDashboardStats } from "@/hooks/useDashboardStats";
-import type { DashboardStats } from "@/types/Dashboard.type";
-
-type DashboardCardItem = {
-  title: string;
-  value: string;
-  description: string;
-  icon: LucideIcon;
-  iconBg: string;
-  iconColor: string;
-  trend?: boolean;
-};
+import type { DashboardCardItem, DashboardStats } from "@/types/Dashboard.type";
 
 const getDashboardCards = (
   stats: DashboardStats | null,
@@ -45,7 +33,9 @@ const getDashboardCards = (
   {
     title: "Active Admins",
     value: stats ? stats.activeAdmins.toLocaleString() : "0",
-    description: "Across 3 regions", // Mock regions
+    description: stats
+      ? `Out of ${stats.totalAdmins} total admins`
+      : "0 total admins",
     icon: Users,
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
@@ -57,8 +47,8 @@ const getDashboardCards = (
       ? `${stats.pendingReview} pending review`
       : "0 pending review",
     icon: FolderTree,
-    iconBg: "bg-chart-2/10",
-    iconColor: "text-chart-2",
+    iconBg: "bg-primary/10",
+    iconColor: "text-primary",
   },
 ];
 
@@ -70,19 +60,13 @@ const DashboardPage = (): React.JSX.Element => {
   return (
     <div className="flex flex-col gap-8 p-6">
       {/* Header */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-between">
-        <div>
+      <div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground">
             Dashboard
           </h1>
           <p className="mt-1 text-muted-foreground">
             System overview and recent activity.
           </p>
-        </div>
-        <Button>
-          <PlusCircle />
-          Create New Article
-        </Button>
       </div>
 
       {/* Error Message */}
@@ -142,6 +126,9 @@ const DashboardPage = (): React.JSX.Element => {
           );
         })}
       </div>
+
+      {/* Recent Articles Table */}
+      <RecentArticlesTable />
     </div>
   );
 };
